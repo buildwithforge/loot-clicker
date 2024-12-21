@@ -18,10 +18,10 @@ export default function Button() {
         data-twe-ripple-color="light"
         data-twe-ripple-init
         onClick={handleClick}
-        title="Click Button"
+        title="Earn Gold"
         type="button"
       >
-        Click Button
+        Earn Gold
       </button>
     </p>
   );
