@@ -13,7 +13,7 @@ export const useMessageStore = create<MessageState>()(
   devtools(
     persist(
       (set) => ({
-        message: 'Welcome to Button Clicker.',
+        message: 'Welcome to Loot Clicker.',
 
         messages: {
           1: 'The clicking has commenced...',

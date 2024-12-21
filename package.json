@@ -1,7 +1,7 @@
 {
-  "name": "button-clicker",
+  "name": "loot-clicker",
   "version": "1.0.0-alpha",
-  "description": "A button clicker idle game.",
+  "description": "Click and collect loot.",
   "author": "Mark <mark@remarkablemark.org>",
   "scripts": {
     "build": "vite build",
@@ -13,7 +13,7 @@
     "preview": "vite preview",
     "start": "vite --open"
   },
-  "homepage": "https://remarkablegames.org/button-clicker/",
+  "homepage": "https://buildwithforge.github.io/loot-clicker/",
   "devDependencies": {
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
