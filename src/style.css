@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  p {
+    @apply my-3.5;
+  }
+
+  button {
+    @apply rounded bg-neutral-800 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-neutral-50 shadow-dark-3 transition duration-150 ease-in-out dark:shadow-black/30;
+  }
+
+  button:hover {
+    @apply hover:bg-neutral-700 hover:shadow-dark-2 dark:hover:shadow-dark-strong;
+  }
+
+  button:active {
+    @apply active:bg-neutral-900 active:shadow-dark-2 dark:active:shadow-dark-strong;
+  }
+
+  button:focus {
+    @apply focus:bg-neutral-700 focus:shadow-dark-2 focus:outline-none focus:ring-0 dark:focus:shadow-dark-strong;
+  }
+
+  button:disabled {
+    @apply opacity-30 disabled:pointer-events-none select-none;
+  }
+
+  /* zebra stripes */
+  tr:nth-child(even) {
+    @apply bg-neutral-100;
+  }
+
+  th,
+  td {
+    @apply border border-neutral-200 p-2;
+  }
+}
