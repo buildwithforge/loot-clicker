@@ -10,6 +10,8 @@ export interface Output {
   current: number;
 }
 
+export type AchievementId = 'gold100' | 'gold1000' | 'gold10000';
+
 export type GeneratorId =
   | 'generator1'
   | 'generator2'

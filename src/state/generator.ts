@@ -3,7 +3,7 @@ import { devtools, persist } from 'zustand/middleware';
 
 import type { Cost, GeneratorId, Output } from '../types';
 import { calculateNextCost } from '../utils';
-import { useClickStore, useMessageStore } from '.';
+import { useAchievementStore, useClickStore, useMessageStore } from '.';
 
 interface Generator {
   label: string;
@@ -352,6 +352,7 @@ export const useGeneratorStore = create<GeneratorState>()(
             generator.intervalId = setInterval(() => {
               useClickStore.getState().increase(generator.output.current);
               useMessageStore.getState().update();
+              useAchievementStore.getState().update();
             }, generator.delay * 1000) as unknown as number;
 
             return state;

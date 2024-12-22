@@ -11,6 +11,7 @@
 ## Credits
 
 - [RPG Icons](https://brullov.itch.io/rpg-icons-free)
+- [Treasure+](https://ninjikin.itch.io/treasure)
 
 ## Install
 
