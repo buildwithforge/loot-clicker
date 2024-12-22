@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { initTWE, Ripple } from 'tw-elements';
 
+import Achievements from '../components/Achievements';
 import Button from '../components/Button';
 import Counter from '../components/Counter';
 import Cursor from '../components/Cursor';
@@ -20,6 +21,7 @@ export default function App() {
         <h1>Loot Clicker</h1>
         <Counter />
         <Button />
+        <Achievements />
 
         <table>
           <thead>
