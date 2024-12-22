@@ -13,11 +13,13 @@ interface Generator {
   cost: Cost;
   output: Output;
   intervalId?: number;
+  thumbnail?: string;
 }
 
 type GeneratorState = Record<GeneratorId, Generator> & {
   purchase: (generatorId: GeneratorId) => void;
   setInterval: (generatorId: GeneratorId) => void;
+  setThumbnail: (generatorId: GeneratorId, thumbnail: string) => void;
 };
 
 /**
@@ -28,8 +30,8 @@ export const useGeneratorStore = create<GeneratorState>()(
     persist(
       (set) => ({
         generator1: {
-          label: 'Generator 1',
-          message: 'Purchased Generator 1.',
+          label: 'Club',
+          message: 'Purchased club.',
           owned: 0,
           delay: 10, // seconds
           cost: {
@@ -45,8 +47,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator2: {
-          label: 'Generator 2',
-          message: 'Purchased Generator 2.',
+          label: 'Torch',
+          message: 'Purchased torch.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -62,8 +64,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator3: {
-          label: 'Generator 3',
-          message: 'Purchased Generator 3.',
+          label: 'Rope',
+          message: 'Purchased rope.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -80,8 +82,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator4: {
-          label: 'Generator 4',
-          message: 'Purchased Generator 4.',
+          label: 'Nails',
+          message: 'Purchased nails.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -98,8 +100,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator5: {
-          label: 'Generator 5',
-          message: 'Purchased Generator 5.',
+          label: 'Bag',
+          message: 'Purchased bag.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -116,8 +118,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator6: {
-          label: 'Generator 6',
-          message: 'Purchased Generator 6.',
+          label: 'Shovel',
+          message: 'Purchased shovel.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -135,8 +137,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator7: {
-          label: 'Generator 7',
-          message: 'Purchased Generator 7.',
+          label: 'Boots',
+          message: 'Purchased boots.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -154,8 +156,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator8: {
-          label: 'Generator 8',
-          message: 'Purchased Generator 8.',
+          label: 'Shield',
+          message: 'Purchased shield.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -173,8 +175,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator9: {
-          label: 'Generator 9',
-          message: 'Purchased Generator 9.',
+          label: 'Arrow',
+          message: 'Purchased arrow.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -192,8 +194,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator10: {
-          label: 'Generator 10',
-          message: 'Purchased Generator 10.',
+          label: 'Bow',
+          message: 'Purchased bow.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -211,8 +213,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator11: {
-          label: 'Generator 11',
-          message: 'Purchased Generator 11.',
+          label: 'Helmet',
+          message: 'Purchased helmet.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -230,8 +232,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator12: {
-          label: 'Generator 12',
-          message: 'Purchased Generator 12.',
+          label: 'Armor',
+          message: 'Purchased armor.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -249,8 +251,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator13: {
-          label: 'Generator 13',
-          message: 'Purchased Generator 13.',
+          label: 'Axe',
+          message: 'Purchased axe.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -268,8 +270,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator14: {
-          label: 'Generator 14',
-          message: 'Purchased Generator 14.',
+          label: 'Pickaxe',
+          message: 'Purchased pickaxe.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -287,8 +289,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator15: {
-          label: 'Generator 15',
-          message: 'Purchased Generator 15.',
+          label: 'Sword',
+          message: 'Purchased sword.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -306,8 +308,8 @@ export const useGeneratorStore = create<GeneratorState>()(
         },
 
         generator16: {
-          label: 'Generator 16',
-          message: 'Purchased Generator 16.',
+          label: 'Staff',
+          message: 'Purchased staff.',
           owned: 0,
           delay: 1, // seconds
           cost: {
@@ -352,6 +354,13 @@ export const useGeneratorStore = create<GeneratorState>()(
               useMessageStore.getState().update();
             }, generator.delay * 1000) as unknown as number;
 
+            return state;
+          }),
+
+        setThumbnail: (generatorId, thumbnail) =>
+          set((state) => {
+            const generator = state[generatorId];
+            generator.thumbnail = thumbnail;
             return state;
           }),
       }),

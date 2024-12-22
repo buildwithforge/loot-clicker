@@ -24,6 +24,7 @@ export default function Generators() {
         <tr id={generator.id} key={generator.id}>
           <td className="flex items-center">
             <button
+              className="flex w-32"
               data-twe-ripple-color="light"
               data-twe-ripple-init
               disabled={clickStore.current < generator.cost.next}
@@ -38,6 +39,14 @@ export default function Generators() {
                 }
               }}
             >
+              {generator.thumbnail && (
+                <img
+                  alt={generator.label}
+                  className="mr-1"
+                  src={generator.thumbnail}
+                />
+              )}
+
               {generator.label}
             </button>
           </td>

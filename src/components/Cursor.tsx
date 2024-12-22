@@ -17,7 +17,7 @@ export default function Cursor() {
     <tr>
       <td>
         <button
-          className="flex"
+          className="flex w-32"
           disabled={clickStore.current < cursorStore.cost.next}
           title="Hammer"
           onClick={handleClick}
