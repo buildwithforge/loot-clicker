@@ -17,12 +17,14 @@ export default function Cursor() {
     <tr>
       <td>
         <button
+          className="flex"
           disabled={clickStore.current < cursorStore.cost.next}
-          title="Cursor"
+          title="Hammer"
           onClick={handleClick}
         >
-          Cursor
-        </button>{' '}
+          <img alt="Hammer" className="mr-1" src="/hammer.png" />
+          Hammer
+        </button>
       </td>
 
       <td>{(cursorStore.owned - 1).toLocaleString()}</td>
@@ -31,7 +33,7 @@ export default function Cursor() {
 
       {[cursorStore.output.current, cursorStore.output.next].map(
         (output, index) => (
-          <td key={index}>{`${output.toLocaleString()} per click`}</td>
+          <td key={index}>{`${output.toLocaleString()} gold`}</td>
         ),
       )}
     </tr>

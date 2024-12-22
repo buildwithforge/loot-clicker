@@ -1,8 +1,16 @@
+<p align="center">
+  <img src="https://github.com/buildwithforge/loot-clicker/blob/main/public/hammer.png" alt="Loot Clicker">
+</p>
+
 # Loot Clicker
 
 🪙 Click and collect loot!
 
 [Play the game.](https://buildwithforge.org/loot-clicker/)
+
+## Credits
+
+- [RPG Icons](https://brullov.itch.io/rpg-icons-free)
 
 ## Install
 

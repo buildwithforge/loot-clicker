@@ -15,12 +15,14 @@ export default function Button() {
   return (
     <p>
       <button
+        className="cursor-[url(/hammer.png),_pointer] flex"
         data-twe-ripple-color="light"
         data-twe-ripple-init
         onClick={handleClick}
         title="Earn Gold"
         type="button"
       >
+        <img alt="Hammer" className="mr-1" src="/hammer.png" />
         Earn Gold
       </button>
     </p>
