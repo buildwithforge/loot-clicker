@@ -18,19 +18,23 @@ export const useCursorStore = create<CursorState>()(
       (set) => ({
         message: 'Upgraded hammer earning ability.',
         owned: 1,
+
         cost: {
           base: 100,
           next: 100,
           rate: 2,
         },
+
         output: {
           base: 2,
           next: 2,
           current: 1,
         },
+
         purchase: () =>
           set((state) => {
             const { cost, output } = state;
+
             state.owned += 1;
             cost.next = calculateNextCost(
               cost.base,
@@ -39,7 +43,8 @@ export const useCursorStore = create<CursorState>()(
             );
             output.current = output.next;
             output.next = Math.round(output.base * state.owned);
-            return state;
+
+            return { ...state };
           }),
       }),
 

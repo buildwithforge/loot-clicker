@@ -338,7 +338,7 @@ export const useGeneratorStore = create<GeneratorState>()(
 
             state.setInterval(generatorId);
 
-            return state;
+            return { ...state };
           }),
 
         setInterval: (generatorId) =>
@@ -355,14 +355,13 @@ export const useGeneratorStore = create<GeneratorState>()(
               useAchievementStore.getState().update();
             }, generator.delay * 1000) as unknown as number;
 
-            return state;
+            return { ...state };
           }),
 
         setThumbnail: (generatorId, thumbnail) =>
           set((state) => {
-            const generator = state[generatorId];
-            generator.thumbnail = thumbnail;
-            return state;
+            state[generatorId].thumbnail = thumbnail;
+            return { ...state };
           }),
       }),
 
