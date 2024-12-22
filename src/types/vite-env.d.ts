@@ -2,6 +2,8 @@
 
 interface ImportMetaEnv {
   readonly DEV: boolean;
+  readonly VITE_FORGE_CLIENT_ID: string;
+  readonly VITE_FORGE_CLIENT_SECRET: string;
 }
 
 interface ImportMeta {
