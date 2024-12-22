@@ -15,7 +15,7 @@ export default function Button() {
   return (
     <p>
       <button
-        className="cursor-[url(/hammer.png),_pointer] flex"
+        className="flex cursor-[url(/hammer.png),_pointer]"
         data-twe-ripple-color="light"
         data-twe-ripple-init
         onClick={handleClick}
