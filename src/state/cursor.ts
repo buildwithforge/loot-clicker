@@ -16,7 +16,7 @@ export const useCursorStore = create<CursorState>()(
   devtools(
     persist(
       (set) => ({
-        message: 'Upgraded cursor click power.',
+        message: 'Upgraded hammer earning ability.',
         owned: 1,
         cost: {
           base: 100,
