@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/buildwithforge/loot-clicker/blob/main/public/hammer.png" alt="Loot Clicker">
+  <img src="https://github.com/buildwithforge/loot-clicker/blob/master/public/hammer.png" alt="Loot Clicker" width="32">
 </p>
 
 # Loot Clicker
