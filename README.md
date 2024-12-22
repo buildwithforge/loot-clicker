@@ -6,7 +6,7 @@
 
 🪙 Click and collect loot!
 
-[Play the game.](https://buildwithforge.org/loot-clicker/)
+[Play the game.](https://buildwithforge.github.io/loot-clicker/)
 
 ## Credits
 
