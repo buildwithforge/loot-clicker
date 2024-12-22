@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 
+import { images } from '../assets';
 import { useClickStore, useCursorStore, useMessageStore } from '../state';
 
 export default function Cursor() {
@@ -22,7 +23,7 @@ export default function Cursor() {
           title="Hammer"
           onClick={handleClick}
         >
-          <img alt="Hammer" className="mr-1" src="/hammer.png" />
+          <img alt="Hammer" className="mr-1" src={images.hammer} />
           Hammer
         </button>
       </td>
