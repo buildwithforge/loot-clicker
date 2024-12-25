@@ -1,16 +1,23 @@
 import { useEffect } from 'react';
 import { initTWE, Ripple } from 'tw-elements';
 
-import Achievements from '../components/Achievements';
-import Button from '../components/Button';
-import Counter from '../components/Counter';
-import Cursor from '../components/Cursor';
-import Generators from '../components/Generators';
-import Message from '../components/Message';
+import { useUserStore } from '../state';
+import Achievements from './Achievements';
+import Button from './Button';
+import Counter from './Counter';
+import Cursor from './Cursor';
+import Generators from './Generators';
+import Message from './Message';
 
 export default function App() {
+  const userStore = useUserStore();
+
   useEffect(() => {
     initTWE({ Ripple });
+
+    if (!userStore.id) {
+      userStore.create();
+    }
   }, []);
 
   return (

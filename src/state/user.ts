@@ -1,15 +1,23 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-interface UserState {
-  id: ReturnType<typeof crypto.randomUUID>;
-}
+import { createUser } from '../utils';
+
+type UserState = Awaited<ReturnType<typeof createUser>> & {
+  create: () => Promise<void>;
+};
 
 export const useUserStore = create<UserState>()(
   devtools(
     persist(
-      () => ({
-        id: crypto.randomUUID(),
+      (set) => ({
+        createdAt: '',
+        externalId: '',
+        id: '',
+        teamId: '',
+        updatedAt: '',
+
+        create: async () => set(await createUser()),
       }),
 
       {

@@ -13,3 +13,7 @@ export async function getItems() {
   }
   return items;
 }
+
+export async function createUser() {
+  return forge.users.create({ externalId: crypto.randomUUID() });
+}
