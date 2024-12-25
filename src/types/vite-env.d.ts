@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly DEV: boolean;
   readonly VITE_FORGE_CLIENT_ID: string;
   readonly VITE_FORGE_CLIENT_SECRET: string;
+  readonly VITE_FORGE_STASH_SPACE_ID: string;
 }
 
 interface ImportMeta {

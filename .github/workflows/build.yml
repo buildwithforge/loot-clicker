@@ -36,6 +36,7 @@ jobs:
         env:
           VITE_FORGE_CLIENT_ID: ${{ secrets.FORGE_CLIENT_ID }}
           VITE_FORGE_CLIENT_SECRET: ${{ secrets.FORGE_CLIENT_SECRET }}
+          VITE_FORGE_STASH_SPACE_ID: ${{ secrets.FORGE_STASH_SPACE_ID }}
 
       - name: Deploy
         if: github.ref_name == 'master'
