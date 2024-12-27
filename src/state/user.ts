@@ -1,9 +1,10 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-import { createUser } from '../utils';
+import { createAchievementSpace, createUser } from '../utils';
 
 type UserState = Awaited<ReturnType<typeof createUser>> & {
+  achievementSpaceId: string;
   create: () => Promise<void>;
 };
 
@@ -11,13 +12,20 @@ export const useUserStore = create<UserState>()(
   devtools(
     persist(
       (set) => ({
+        achievementSpaceId: '',
         createdAt: '',
-        externalId: '',
+        externalId: null,
         id: '',
         teamId: '',
-        updatedAt: '',
+        updatedAt: null,
 
-        create: async () => set(await createUser()),
+        create: async () => {
+          const user = await createUser();
+          set(user);
+
+          const space = await createAchievementSpace(user.id, user.externalId);
+          set({ achievementSpaceId: space.id });
+        },
       }),
 
       {

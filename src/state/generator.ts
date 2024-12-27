@@ -3,7 +3,7 @@ import { devtools, persist } from 'zustand/middleware';
 
 import type { Cost, GeneratorId, Output } from '../types';
 import { calculateNextCost } from '../utils';
-import { useAchievementStore, useClickStore, useMessageStore } from '.';
+import { useClickStore } from '.';
 
 interface Generator {
   label: string;
@@ -28,7 +28,7 @@ type GeneratorState = Record<GeneratorId, Generator> & {
 export const useGeneratorStore = create<GeneratorState>()(
   devtools(
     persist(
-      (set) => ({
+      (set, get) => ({
         generator1: {
           label: 'Club',
           message: 'Purchased club.',
@@ -341,22 +341,20 @@ export const useGeneratorStore = create<GeneratorState>()(
             return { ...state };
           }),
 
-        setInterval: (generatorId) =>
-          set((state) => {
-            const generator = state[generatorId];
+        setInterval: (generatorId) => {
+          const state = get();
+          const generator = state[generatorId];
 
-            if (generator.intervalId) {
-              clearInterval(generator.intervalId);
-            }
+          if (generator.intervalId) {
+            clearInterval(generator.intervalId);
+          }
 
-            generator.intervalId = setInterval(() => {
-              useClickStore.getState().increase(generator.output.current);
-              useMessageStore.getState().update();
-              useAchievementStore.getState().update();
-            }, generator.delay * 1000) as unknown as number;
+          const intervalId = setInterval(() => {
+            useClickStore.getState().increase(generator.output.current);
+          }, generator.delay * 1000);
 
-            return { ...state };
-          }),
+          set({ [generatorId]: { ...generator, intervalId } });
+        },
 
         setThumbnail: (generatorId, thumbnail) =>
           set((state) => {

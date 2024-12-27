@@ -14,6 +14,43 @@ export async function getItems() {
   return items;
 }
 
+export function getItem(name: string) {
+  const item = items?.find(
+    (item) => item.name.toLowerCase() === name.toLowerCase(),
+  );
+  if (!item) {
+    throw new Error(`Item not found: ${name}`);
+  }
+  return item;
+}
+
 export async function createUser() {
   return forge.users.create({ externalId: crypto.randomUUID() });
+}
+
+export async function createAchievementSpace(
+  userId: string,
+  externalId: string | null,
+) {
+  return forge.users.spaces.create(userId, {
+    spaceId: import.meta.env.VITE_FORGE_STASH_SPACE_ID,
+    externalId,
+  });
+}
+
+export function createAchievement({
+  itemId,
+  userId,
+  userSpaceId,
+}: {
+  itemId: string;
+  userId: string;
+  userSpaceId: string;
+}) {
+  return forge.itemInstances.create({
+    itemAttributeInstances: [],
+    itemId,
+    userId,
+    userSpaceId,
+  });
 }

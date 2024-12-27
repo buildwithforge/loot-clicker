@@ -1,24 +1,15 @@
 import { useCallback } from 'react';
 
 import { images } from '../assets';
-import {
-  useAchievementStore,
-  useClickStore,
-  useCursorStore,
-  useMessageStore,
-} from '../state';
+import { useClickStore, useCursorStore } from '../state';
 
 export default function Button() {
-  const achievementStore = useAchievementStore();
-  const clickStore = useClickStore();
-  const cursorStore = useCursorStore();
-  const messageStore = useMessageStore();
+  const increase = useClickStore((state) => state.increase);
+  const current = useCursorStore((state) => state.output.current);
 
   const handleClick = useCallback(() => {
-    clickStore.increase(cursorStore.output.current);
-    messageStore.update();
-    achievementStore.update();
-  }, []);
+    increase(current);
+  }, [current]);
 
   return (
     <p>

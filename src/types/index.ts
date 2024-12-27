@@ -10,7 +10,11 @@ export interface Output {
   current: number;
 }
 
-export type AchievementId = 'gold100' | 'gold1000' | 'gold10000';
+export enum AchievementId {
+  'gold100' = 'gold100',
+  'gold1000' = 'gold1000',
+  'gold10000' = 'gold10000',
+}
 
 export type GeneratorId =
   | 'generator1'
