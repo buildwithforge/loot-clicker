@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
+import { useAchievementStore, useMessageStore } from '.';
+
 interface ClickState {
   current: number;
   total: number;
@@ -15,11 +17,16 @@ export const useClickStore = create<ClickState>()(
         current: 0,
         total: 0,
 
-        increase: (by = 1) =>
+        increase: (by = 1) => {
           set((state) => ({
             current: state.current + by,
             total: state.total + by,
-          })),
+          }));
+
+          [useAchievementStore, useMessageStore].forEach((store) =>
+            store.getState().update(),
+          );
+        },
 
         decrease: (by = 1) => set((state) => ({ current: state.current - by })),
       }),
