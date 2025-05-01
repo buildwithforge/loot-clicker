@@ -15,7 +15,7 @@
   },
   "homepage": "https://buildwithforge.github.io/loot-clicker/",
   "dependencies": {
-    "@forgegames/sdk": "0.1.0-alpha.12"
+    "@forgegames/sdk": "0.1.0-alpha.14"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
