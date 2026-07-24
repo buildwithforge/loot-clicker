@@ -37,7 +37,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.2.0",
     "postcss": "8.5.22",
-    "prettier": "3.8.5",
+    "prettier": "3.9.6",
     "prettier-plugin-tailwindcss": "0.8.1",
     "react": "19.2.7",
     "react-dom": "19.2.7",
